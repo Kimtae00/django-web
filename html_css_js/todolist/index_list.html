@@ -29,13 +29,12 @@
             </div>
         </div>
     </div>
-
     <script>
         let input = document.getElementById("inputText");
         let list = document.getElementById("list");
         let minimalValue = 3;
         let listNum = 0;
-        addList = () => {   
+        addList = () => {
             // get
             let inputText = filterList(input.value);
             // set 
@@ -57,33 +56,31 @@
                 input.value = " ";
                 listNum++;
             }
-
-            done = (listId) => {
-                let checkbox = document.getElementById(`check${listId}`);
-                let current = document.getElementById(`text${listId}`);
-                let classExit = current.classList.contains("text-decoration-line-through");
-                if (classExit == true) {
-                    current.classList.remove("text-decoration-line-through");
-                } else {
-                    current.classList.add("text-decoration-line-through");
-                }
+        }
+        done = (listId) => {
+            let checkbox = document.getElementById(`check${listId}`);
+            let current = document.getElementById(`text${listId}`);
+            let classExit = current.classList.contains("text-decoration-line-through");
+            if (classExit == true) {
+                current.classList.remove("text-decoration-line-through");
+            } else {
+                current.classList.add("text-decoration-line-through");
             }
-
-            filterList = (x) => {
-                if (x) {
-                    if (x.length >= minimalValue) {
-                        return x;
-                    }
-                    else {
-                        alert("Please enter more than 3 words")
-                    }
+        }
+        filterList = (x) => {
+            if (x) {
+                if (x.length >= minimalValue) {
+                    return x;
                 }
                 else {
-                    return false;
+                    alert("Please enter more than 3 words")
                 }
             }
-
-            <!-- 수정 -->
+            else {
+                return false;
+            }
+        }
+        <!--수정-->
         editList = (listId) => {
             let currentText = document.getElementById(`text${listId}`);
             let newText = prompt("Wanna Change list?", currentText.innerHTML);
@@ -91,8 +88,7 @@
                 currentText.innerHTML = newText;
             }
         }
-
-        <!-- 삭제 -->
+        <!--삭제-->
         deleteList = (listId) => {
             let current = document.getElementById(`text${listId}`).innerHTML;
             let deleteComfirm = confirm(`Are you sure to delete ${current}`);
@@ -106,14 +102,8 @@
             }
         };
 
-    
-    }
-
-        
-
     </script>
 
-    
 </body>
 
 </html>
